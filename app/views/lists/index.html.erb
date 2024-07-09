@@ -3,10 +3,18 @@
 <% @lists.each do |list| %>
 
   <p>タイトル</p>
-  <!--<span><%= list.title %></span>を削除-->
-    <span>
+  <span>
       <!--list.titleを表示、/lists/#{list.id}に飛ぶ-->
     <%= link_to list.title, list_path(list.id) %>
   </span>
+
+  <p>画像</p>
+  <% if list.image.attached? %>
+    <%= image_tag list.image, size: "200x200" %>
+  <% else %>
+    <%= image_tag 'no_image', size: "200x200" %>
+  <% end %>
+
+
 
 <% end %>
