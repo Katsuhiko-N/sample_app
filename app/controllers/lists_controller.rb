@@ -30,9 +30,21 @@ class ListsController < ApplicationController
   end
 
   def update
+    # Listからidに応じたものを取り出す
     list = List.find(params[:id])
+    # 取り出したものを書き換え
     list.update(list_params)
+    # 各詳細画面へリダイレクト
     redirect_to list_path(list.id)
+  end
+
+  def destroy
+    # Listからidに応じたものを取り出す
+    list = List.find(params[:id])
+    # 取り出したものを消去
+    list.destroy
+    # 一覧画面へリダイレクト
+    redirect_to '/lists'
   end
 
   private
