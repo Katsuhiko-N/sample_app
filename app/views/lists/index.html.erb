@@ -1,15 +1,35 @@
-<h1>投稿一覧</h1>
-<!--|list|-->
+<div class="list-wrap">
 <% @lists.each do |list| %>
+  <div class="list-box">
+    <% if list.image.attached? %>
+      <%= image_tag list.image, size: "200x200" %>
+    <% else %>
+      <%= image_tag 'no-image', size: "200x200" %>
+    <% end %>
+    <div class="list-comment">
+      <span class="list-body"><%= list.body %></span>
+      <span class="list-title"><%= list.body %></span>
+    </div>
+  </div>
+</div>
 
-  <p>タイトル</p>
-  <span>
+
+
+
+<!--ここから今までのコード-->
+
+<!--<h1>投稿一覧</h1>-->
+<!--|list|-->
+<!--<% @lists.each do |list| %>-->
+
+<!--  <p>タイトル</p>-->
+<!--  <span>-->
       <!--list.titleを表示、/lists/#{list.id}に飛ぶ-->
-    <%= link_to list.title, list_path(list.id) %>
-  </span>
+<!--    <%= link_to list.title, list_path(list.id) %>-->
+<!--  </span>-->
 
-  <p>画像</p>
-  <%= image_tag list.image, size: "200x200" %>
+<!--  <p>画像</p>-->
+<!--  <%= image_tag list.image, size: "200x200" %>-->
 
 
-<% end %>
+<!--<% end %>-->
