@@ -12,7 +12,6 @@ class ListsController < ApplicationController
       # フラッシュメッセージを定義
       flash[:notice] = "投稿に成功しました"
       # 4.トップ画面へリダイレクト
-      # redirect_to '/top'を書き換え
       redirect_to list_path(@list.id)
     else
       # フラッシュメッセージを定義
